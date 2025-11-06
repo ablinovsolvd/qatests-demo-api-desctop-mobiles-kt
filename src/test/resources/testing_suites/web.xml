@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SauceDemo Tests Web" verbose="1" parallel="methods">
+    <parameter name="suiteOwner" value="saucedemoGuiDesktop" />
+    <test name="SauceDemo Functional Tests">
+        <groups>
+            <run>
+                <include name="functional"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.solvd.saucedemo.gui.desktop.SaucedemoGuiDeskTest">
+                <methods>
+                    <include name="testSuccessfulUserAccess"/>
+                    <include name="testLockedOutUserAccess"/>
+                    <include name="testProductCardsDisplay"/>
+                    <include name="testProductDetailsDisplay"/>
+                    <include name="testAddProductToCart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
