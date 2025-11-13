@@ -52,6 +52,63 @@ class SaucedemoGuiDeskTest : IAbstractTest {
     @Test(groups = ["functional"])
     @MethodOwner(owner = "saucedemoGuiDesktop")
     @TestLabel(name = "feature", value = ["web", "regression"])
+    fun testProductCardsDisplay() {
+        val loginPage = LoginPage(getDriver())
+        loginPage.open()
+        Assert.assertTrue(loginPage.isPageOpened, "Login page is not opened.")
+
+        loginPage.login(STANDARD_USERNAME, PASSWORD)
+
+        val productsPage = ProductsPage(getDriver())
+        Assert.assertTrue(productsPage.isPageOpened, "Products page is not opened after login.")
+
+        for (index in productsPage.getProductCards().indices) {
+            Assert.assertTrue(productsPage.isProductNamePresent(index),
+                "Product name is not present for product card at index $index")
+            Assert.assertTrue(productsPage.isProductDescriptionPresent(index),
+                "Product description is not present for product card at index $index")
+            Assert.assertTrue(productsPage.isProductPricePresent(index),
+                "Product price is not present for product card at index $index")
+        }
+    }
+
+    @Test(groups = ["functional"])
+    @MethodOwner(owner = "saucedemoGuiDesktop")
+    @TestLabel(name = "feature", value = ["web", "regression"])
+    fun testProductDetailsDisplay() {
+        val loginPage = LoginPage(getDriver())
+        loginPage.open()
+        Assert.assertTrue(loginPage.isPageOpened, "Login page is not opened.")
+
+        loginPage.login(STANDARD_USERNAME, PASSWORD)
+
+        val productsPage = ProductsPage(getDriver())
+        Assert.assertTrue(productsPage.isPageOpened, "Products page is not opened after login.")
+
+        val productDetailsPage = productsPage.clickProductTitle(0)
+        Assert.assertTrue(productDetailsPage.isPageOpened,
+            "Product details page is not opened.")
+
+        val expected = "Sauce Labs Backpack"
+        Assert.assertEquals(productDetailsPage.getProductName(), expected, "Not the same")
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //TODO
+    @Test(groups = ["functional"])
+    @MethodOwner(owner = "saucedemoGuiDesktop")
+    @TestLabel(name = "feature", value = ["web", "regression"])
     fun testCartIconTrue() {
         val loginPage = LoginPage(getDriver())
         loginPage.open()
