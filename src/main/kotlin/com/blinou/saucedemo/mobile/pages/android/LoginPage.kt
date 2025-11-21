@@ -1,4 +1,4 @@
-package com.blinou.saucedemo.del.pages.android
+package com.blinou.saucedemo.mobile.pages.android
 
 /**
  * SwagDemo GUI Test Automation Project
@@ -6,7 +6,7 @@ package com.blinou.saucedemo.del.pages.android
  * Year: 2025
  */
 
-import com.blinou.saucedemo.del.pages.common.LoginPageBase
+import com.blinou.saucedemo.mobile.pages.common.LoginPageBase
 import com.zebrunner.carina.utils.factory.DeviceType
 import com.zebrunner.carina.utils.factory.DeviceType.Type.ANDROID_PHONE
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement

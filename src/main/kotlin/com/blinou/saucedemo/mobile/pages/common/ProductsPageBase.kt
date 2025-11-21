@@ -1,4 +1,4 @@
-package com.blinou.saucedemo.del.pages.common
+package com.blinou.saucedemo.mobile.pages.common
 
 
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy

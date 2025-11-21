@@ -1,4 +1,4 @@
-package com.blinou.saucedemo.gui.del
+package com.blinou.saucedemo.gui.mobile
 
 /**
  * SwagDemo GUI Test Automation Project
@@ -6,10 +6,10 @@ package com.blinou.saucedemo.gui.del
  * Year: 2025
  */
 
-import com.blinou.saucedemo.del.pages.common.LoginPageBase
+import com.blinou.saucedemo.mobile.pages.common.LoginPageBase
 import com.blinou.saucedemo.gui.constants.GuiConstants.PASSWORD
 import com.blinou.saucedemo.gui.constants.GuiConstants.STANDARD_USERNAME
-import com.blinou.saucedemo.del.pages.common.ProductsPageBase
+import com.blinou.saucedemo.mobile.pages.common.ProductsPageBase
 import com.zebrunner.agent.core.annotation.TestLabel
 import com.zebrunner.carina.core.IAbstractTest
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner
