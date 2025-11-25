@@ -6,9 +6,10 @@ package com.blinou.saucedemo.gui.mobile
  * Year: 2025
  */
 
-import com.blinou.saucedemo.mobile.pages.common.LoginPageBase
 import com.blinou.saucedemo.gui.constants.GuiConstants.PASSWORD
 import com.blinou.saucedemo.gui.constants.GuiConstants.STANDARD_USERNAME
+import com.blinou.saucedemo.mobile.pages.common.CartPageBase
+import com.blinou.saucedemo.mobile.pages.common.LoginPageBase
 import com.blinou.saucedemo.mobile.pages.common.ProductsPageBase
 import com.zebrunner.agent.core.annotation.TestLabel
 import com.zebrunner.carina.core.IAbstractTest
@@ -48,6 +49,28 @@ class SaucedemoGuiMobileTest : IAbstractTest, IMobileUtils {
 
         leftMenu.clickLogoutButton()
         Assert.assertTrue(loginPage.isPageOpened(), "Login page isn't opened after logout")
+    }
+
+    @Test(groups = ["functional"])
+    @MethodOwner(owner = "saucedemoGuiMobile")
+    @TestLabel(name = "feature", value = ["mobile", "regression"])
+    fun testAddItemToCart() {
+        val loginPage = initPage(LoginPageBase::class.java)
+        Assert.assertTrue(loginPage.isPageOpened, "Login page isn't opened")
+
+        loginPage.login(STANDARD_USERNAME, PASSWORD)
+        val productsPage = initPage(ProductsPageBase::class.java)
+        Assert.assertTrue(productsPage.isPageOpened, "Products page is not opened!")
+
+        productsPage.addProductToCart(1)
+
+        val cartPage: CartPageBase = productsPage.goToCartPage()
+        Assert.assertTrue(cartPage.isPageOpened(), "Cart page is not opened!")
+
+        Assert.assertEquals(
+            cartPage.getProductQty(1), 1,
+            "Product quantity in the cart is incorrect!"
+        )
     }
 
 }
