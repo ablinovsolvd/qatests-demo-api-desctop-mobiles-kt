@@ -31,6 +31,28 @@ You’ll need at least Appium 2.x (your preferred version: **2.12.1**).
   ```
   Output should be: **2.12.1**
 
+### Install Android + iOS drivers
+
+#### Install **uiautomator2** (Android)
+```bash
+appium driver install uiautomator2@3.10.0
+```
+
+#### Install **xcuitest** (iOS)
+```bash
+appium driver install xcuitest@7.31.0
+```
+
+### Check installed drivers
+```bash
+appium driver list
+```
+Expected:
+```
+- uiautomator2@3.10.0 [installed]
+- xcuitest@7.31.0     [installed]
+```
+
 - To start the server, simply run:
   ```bash
   appium

@@ -1,4 +1,4 @@
-package com.blinou.saucedemo.mobile.pages.dd
+package com.blinou.saucedemo.mobile.pages.ios
 
 import com.blinou.saucedemo.mobile.pages.common.LoginPageBase
 import com.zebrunner.carina.utils.factory.DeviceType
